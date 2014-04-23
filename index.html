@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Index</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+
+        .tree {
+            background: url('Assets/appleTree.png');
+            height: 1000px;
+            width: 715px;
+        }
+
+        .apple1 {
+            position: absolute;
+            top: 83px;
+            left: 328px;
+        }
+
+        .apple2 {
+            position: absolute;
+            top: 124px;
+            left: 165px;
+        }
+
+        .apple3 {
+            position: absolute;
+            top: 210px;
+            left: 91px;
+        }
+
+        .apple4 {
+            position: absolute;
+            top: 381px;
+            left: 100px;
+        }
+
+        .apple5 {
+            position: absolute;
+            top: 309px;
+            left: 177px;
+        }
+
+        .apple6 {
+            position: absolute;
+            top: 217px;
+            left: 230px;
+        }
+
+        .apple7 {
+            position: absolute;
+            top: 120px;
+            left: 446px;
+        }
+
+        .apple8 {
+            position: absolute;
+            top: 163px;
+            left: 574px;
+        }
+
+        .apple9 {
+            position: absolute;
+            top: 245px;
+            left: 500px;
+        }
+
+        .apple10 {
+            top: 444px;
+            left: 532px;
+        }
+
+        .apple1, .apple2, .apple3, .apple4, .apple5, .apple6, .apple7, .apple8, .apple9, .apple10 {
+            background: url('Assets/apple.png');
+            height: 52px;
+            width: 46px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tree">
+    </div>
+
+    <div class="apple1">
+    </div>
+
+    <div class="apple2">
+    </div>
+
+    <div class="apple3">
+    </div>
+
+    <div class="apple4">
+    </div>
+
+    <div class="apple5">
+    </div>
+
+    <div class="apple6">
+    </div>
+
+    <div class="apple7">
+    </div>
+
+    <div class="apple8">
+    </div>
+
+    <div class="apple9">
+    </div>
+
+    <div class="apple10">
+    </div>
+
+    <div class="count">
+        Count:
+
+        <div class="countertxt">
+            0
+        </div>
+    </div>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="Js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+<script type="text/javascript">
+var timeinterval;
+var timeout;
+var counter = 0;
+var isShaken = false;
+var randomNumber = 0;
+
+$(".tree").click(function () {
+    if (isShaken == false) {
+        $('.tree').effect("shake", { times: 5 }, 300);
+
+        var timeinterval = setInterval('gameStart()', 100);
+
+        var timeout = setTimeout('clearGameTimeout()', 30000);
+
+        isShaken = true;
+    }
+});
+
+$(".apple1").click(function () {
+    counter++;
+    $(".apple1").hide();
+});
+
+$(".apple2").click(function () {
+    counter++;
+    $(".apple2").hide();
+});
+
+$(".apple3").click(function () {
+    counter++;
+    $(".apple3").hide();
+});
+
+$(".apple4").click(function () {
+    counter++;
+    $(".apple4").hide();
+});
+
+$(".apple5").click(function () {
+    counter++;
+    $(".apple5").hide();
+});
+
+$(".apple6").click(function () {
+    counter++;
+    $(".apple6").hide();
+});
+
+$(".apple7").click(function () {
+    counter++;
+    $(".apple7").hide();
+});
+
+$(".apple8").click(function () {
+    counter++;
+    $(".apple8").hide();
+});
+
+$(".apple9").click(function () {
+    counter++;
+    $(".apple9").hide();
+});
+
+$(".apple10").click(function () {
+    counter++;
+    $(".apple10").hide();
+});
+
+function clearGameTimeout() {
+
+    //window.location.href = "leaderboard.php";
+}
+
+function gameStart() {
+    randomNumber = randomNumber = Math.floor((Math.random() * 10) + 1);
+
+    switch (randomNumber) {
+        case 1:
+            DropApple1();
+            break;
+        case 2:
+            DropApple2();
+            break;
+        case 3:
+            DropApple3();
+            break;
+        case 4:
+            DropApple4();
+            break;
+        case 5:
+            DropApple5();
+            break;
+        case 6:
+            DropApple6();
+            break;
+        case 7:
+            DropApple7();
+            break;
+        case 8:
+            DropApple8();
+            break;
+        case 9:
+            DropApple9();
+            break;
+        case 10:
+            DropApple10();
+            break;
+    }
+
+    $('.countertxt').html(counter);
+}
+
+function DropApple1() {
+    $('.apple1').show();
+    $(".apple1").animate({
+        top: 900
+    }, 2000, function () {
+        $(".apple1").hide();
+        $(".apple1").css('top', 83);
+    });
+}
+
+function DropApple2() {
+    $('.apple2').show();
+    $(".apple2").animate({
+        top: 900
+    }, 2000, function () {
+        $(".apple2").hide();
+        $(".apple2").css('top', 124);
+    });
+}
+
+function DropApple3() {
+    $('.apple3').show();
+    $(".apple3").animate({
+        top: 900
+    }, 2000, function () {
+        $(".apple3").hide();
+        $(".apple3").css('top', 210);
+    });
+}
+
+function DropApple4() {
+    $('.apple4').show();
+    $(".apple4").animate({
+        top: 900
+    }, 2000, function () {
+        $(".apple4").hide();
+        $(".apple4").css('top', 381);
+    });
+}
+
+function DropApple5() {
+    $('.apple5').show();
+    $(".apple5").animate({
+        top: 900
+    }, 2000, function () {
+        $(".apple5").hide();
+        $(".apple5").css('top', 309);
+    });
+}
+
+function DropApple6() {
+    $('.apple6').show();
+    $(".apple6").animate({
+        top: 900
+    }, 2000, function () {
+        $(".apple6").hide();
+        $(".apple6").css('top', 217);
+    });
+}
+
+function DropApple7() {
+    $('.apple7').show();
+    $(".apple7").animate({
+        top: 900
+    }, 2000, function () {
+        $(".apple7").hide();
+        $(".apple7").css('top', 120);
+    });
+}
+
+function DropApple8() {
+    $('.apple8').show();
+    $(".apple8").animate({
+        top: 900
+    }, 2000, function () {
+        $(".apple8").hide();
+        $(".apple8").css('top', 163);
+    });
+}
+
+function DropApple9() {
+    $('.apple9').show();
+    $(".apple9").animate({
+        top: 900
+    }, 2000, function () {
+        $(".apple9").hide();
+        $(".apple9").css('top', 245);
+    });
+}
+
+function DropApple10() {
+    $('.apple10').show();
+    $(".apple10").animate({
+        top: 900
+    }, 2000, function () {
+        $(".apple10").hide();
+        $(".apple10").css('top', 444);
+    });
+}
+
+$('.apple1').hide();
+$('.apple2').hide();
+$('.apple3').hide();
+$('.apple4').hide();
+$('.apple5').hide();
+$('.apple6').hide();
+$('.apple7').hide();
+$('.apple8').hide();
+$('.apple9').hide();
+$('.apple10').hide();
+</script>
+</body>
+</html>
