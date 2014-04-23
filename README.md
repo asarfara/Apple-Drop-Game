@@ -1,4 +1,6 @@
 Apple-Drop-Game
 ===============
 
-Apple Drop Game Made In JQuery
+Apple Drop Game Made In JQuery + HTML5
+
+
